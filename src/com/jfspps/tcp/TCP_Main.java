@@ -1,4 +1,4 @@
-package com.jfspps;
+package com.jfspps.tcp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.Scanner;
 
-public class Main {
+public class TCP_Main {
 
     public static void main(String[] args) {
         try (Socket socket = new Socket("localhost", 5000)){
