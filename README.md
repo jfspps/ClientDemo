@@ -1,4 +1,4 @@
-# ClientDemo
+# ClientDemo and high-level APIs
 A barebones example of a client (Java)
 
 This project should be compiled and run alongside the [ServerDemo](https://github.com/jfspps/ServerDemo) app.
@@ -7,4 +7,8 @@ The pair of projects (this and [ServerDemo](https://github.com/jfspps/ServerDemo
 
 In this project, we implement the feedback from the server (for demonstration purposes) by extracting the address and port number from the datagram received (which in this project is the client's) and send it back (to the client).
 
-TCP connections tend to be used when data integrity and as a result of packet checking, is the slower of the two protocols. UDP connections tend to be used when datagram (packet) drops are permitted and higher transmission speeds are required. As such, UDP tends to be applied to VoIP and video streaming applications.
+TCP connections tend to be used when data integrity is required and as a result of packet checking, is the slower of the two protocols. UDP connections tend to be used when datagram (packet) drops are permitted and higher transmission speeds are required. As such, UDP tends to be applied to VoIP and video streaming applications.
+
+## High level APIs
+
+This part of the project demonstrates the use of URIs and URLs which are handled by high-level Java APIs (TCP and UDP demonstrated above are considered low-level APIs).
