@@ -1,5 +1,6 @@
 package com.jfspps.highlevelapi;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,14 +27,14 @@ public class URL_Main {
         System.out.println(" ================== Demo of URLs with HttpURLConnection =====================================");
 
         try {
-            URL url = new URL("http://google.co.uk");
+            URL url = new URL("http://google.co.uk/demo");
 
-            // this single connection can be funnelled to multiple objects
+            // this single HTTP connection can be funnelled to multiple objects (there is an equivalent HttpsURLConnection class)
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
             // set any settings, as with URLConnection
             httpURLConnection.setRequestMethod("GET");      // GET is the default anyway
-            httpURLConnection.setRequestProperty("User-Agent", "Chrome");
+            httpURLConnection.setRequestProperty("User-Agent", "Chrome");   // get Chrome to retrieve the page
             httpURLConnection.setReadTimeout(5000);
 
             // note that getResponse() also performs the connection, hence connect() is redundant
@@ -42,7 +43,7 @@ public class URL_Main {
             System.out.println("Response code: " + responseCode);
 
             if (responseCode != 200){
-                System.out.println("Error reading page, timeout passed");
+                System.out.println("Error reading page: " + httpURLConnection.getResponseMessage());
                 return;
             }
 
